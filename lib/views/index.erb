@@ -3,9 +3,17 @@
 <button><a href="need/new">Add Need</a></button>
 
 <div class="posted-needs">
-	<% @needs.each do |need| %>
-		<span id="title"><%= need.title %></span>
-		</br>
-		<span id="description"><%= need.description %></span>
-	<% end %>
+	<ul>
+		<% @needs.each do |need| %>
+			<li>
+				<span id="title"><a href="need/<%= need.id %>"><h3><%= need.title %></h3></a></span>
+				</br>
+				<span id="description"><%= need.description %></span>
+				</br>
+				<a href="/need/<%= need.id %>">Reply with Lead</a>
+				</br>
+				<%= need.leads.count %> Leads
+			</li>
+		<% end %>
+	</ul>
 </div>

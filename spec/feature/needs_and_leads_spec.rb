@@ -1,7 +1,7 @@
 require "capybara/rspec"
 require "spec_helper"
 
-feature "Homepage" do
+feature "Core functionality" do
 
 	scenario "User sees the title when homepage is visited" do
 		visit '/'
@@ -20,4 +20,27 @@ feature "Homepage" do
 
 	end
 
+	scenario "Users view needs individually" do
+		Need.create(title: "Help wanted", description: "Please help comb my hair")
+
+		visit '/'
+		click_link 'Help wanted'
+
+		expect(current_path).to eq('/need/2') #unclean db
+		expect(page).to have_content("Help wanted")
+		expect(page).to have_content("Please help comb my hair")
+	end
+	
+	scenario "Users can respond to needs with leads" do
+		Need.create(title: "Help wanted", description: "Please help comb my hair")
+
+		visit '/'
+		click_link "Reply with Lead"
+
+		fill_in("reply", :with => "I can do it!")
+		click_button("Reply")
+
+		expect(page).to have_content("1 Lead")
+
+	end
 end

@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 
 require_relative './models/need'
+require_relative './models/lead'
 
 class NeedsAndLeads < Sinatra::Base
 
@@ -12,7 +13,7 @@ class NeedsAndLeads < Sinatra::Base
     erb :index
   end
 
-  post '/' do
+  post '/need' do
   	Need.create(title: params[:title], description: params[:description])
   	redirect to('/')
   	erb :index
@@ -20,6 +21,17 @@ class NeedsAndLeads < Sinatra::Base
 
   get '/need/new' do
   	erb :'need/new'
+  end
+
+  get '/need/:id' do
+  	@need_id = params[:id]
+  	@need = Need.find_by_id(@need_id)
+  	erb :'need/show'
+  end
+
+  post '/lead' do
+  	Lead.create(message: params[:reply], need_id: params[:need])
+  	redirect to('/')
   end
 
   # start the server if ruby file executed directly

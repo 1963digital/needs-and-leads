@@ -10,4 +10,5 @@ group :development, :test do
   gem "sinatra-activerecord"
   gem 'activerecord-postgresql-adapter', '~> 0.0.1'
   gem "rake"
+  gem 'database_cleaner'
 end

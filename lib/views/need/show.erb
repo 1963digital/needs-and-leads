@@ -1,0 +1,16 @@
+<div>
+	<h3><%= @need.title %></h3>
+	<%= @need.description %>
+</div>
+
+<div id="post-lead">
+
+  <h1> Reply with Lead </h1>
+
+  <form action="/lead" method="post">
+    Reply: <input type="text" name="reply">
+    <input type="hidden" name="need" value="<%= @need_id %>">
+    <button> Reply </button>
+  </form>
+  
+</div>

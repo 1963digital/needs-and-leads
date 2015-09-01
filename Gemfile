@@ -7,6 +7,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'restart'
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
+  gem "sinatra-activerecord"
+  gem 'activerecord-postgresql-adapter', '~> 0.0.1'
+  gem "rake"
 end

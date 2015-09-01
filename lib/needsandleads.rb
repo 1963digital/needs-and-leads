@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'data_mapper_setup'
+require 'sinatra/activerecord'
 
 class NeedsAndLeads < Sinatra::Base
   get '/' do

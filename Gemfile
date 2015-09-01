@@ -6,5 +6,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec'
   gem 'rspec-sinatra'
-  gem 'shotgun'
+  gem 'restart'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
 end

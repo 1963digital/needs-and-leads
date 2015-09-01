@@ -2,4 +2,10 @@
 
 <button><a href="need/new">Add Need</a></button>
 
-<%= @needs %>
+<div class="posted-needs">
+	<% @needs.each do |need| %>
+		<span id="title"><%= need.title %></span>
+		</br>
+		<span id="description"><%= need.description %></span>
+	<% end %>
+</div>

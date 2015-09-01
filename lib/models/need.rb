@@ -1,9 +1,4 @@
-class Need
-
-  include DataMapper::Resource
-
-  property :id,     Serial
-  property :title,  String
-  property :description,    String
-
+class Need < ActiveRecord::Base
+  validates_presence_of :title
+  validates_presence_of :description
 end

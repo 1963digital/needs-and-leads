@@ -1,13 +1,19 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
 
+require_relative './models/need'
+
 class NeedsAndLeads < Sinatra::Base
+
+  set :database_file, "./config/database.yml"
+
   get '/' do
+  	@needs = Need.all
     erb :index
   end
 
   post '/' do
-  	#datamapper.create(title: params[:title], description: params[:description])
+  	Need.create(title: params[:title], description: params[:description])
   	redirect to('/')
   	erb :index
   end

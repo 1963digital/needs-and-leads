@@ -3,6 +3,7 @@ class CreateNeed < ActiveRecord::Migration
   	create_table :needs do |t|
       t.string :title
       t.string :description
+      t.string :tags
     end
   end
 end

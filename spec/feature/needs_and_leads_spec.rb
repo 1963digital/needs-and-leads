@@ -41,6 +41,5 @@ feature "Core functionality" do
 		click_button("Reply")
 
 		expect(page).to have_content("1 Lead")
-
 	end
 end

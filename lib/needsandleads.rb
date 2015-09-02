@@ -14,7 +14,7 @@ class NeedsAndLeads < Sinatra::Base
   end
 
   post '/need' do
-  	Need.create(title: params[:title], description: params[:description])
+  	Need.create(title: params[:title], description: params[:description], tags: params[:tags])
   	redirect to('/')
   	erb :index
   end
@@ -24,8 +24,8 @@ class NeedsAndLeads < Sinatra::Base
   end
 
   get '/need/:id' do
-  	@needs = Need.all
   	@need_id = params[:id]
+
   	@need = Need.find_by_id(@need_id)
   	erb :'need/show'
   end

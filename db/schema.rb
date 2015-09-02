@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150901213439) do
   create_table "needs", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.string "tags"
   end
 
 end

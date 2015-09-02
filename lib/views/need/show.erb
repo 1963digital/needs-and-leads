@@ -17,11 +17,9 @@
 
 
 <div class="leads">
-	<% @needs.each do |need| %>
-		<% if need.leads.any? %>
-			<%need.leads.each do |lead| %>
-				<%= lead.message %>
-			<% end %>
+	<% if @need.leads.any? %>
+		<% @need.leads.each do |lead| %>
+			<%= lead.message %>
 		<% end %>
 	<% end %>
 </div>

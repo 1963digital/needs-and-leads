@@ -35,6 +35,12 @@ class NeedsAndLeads < Sinatra::Base
   	redirect to('/')
   end
 
+  get '/tagged/:tag' do 
+  	@needs = Need.where(tags: params[:tag])
+
+  	erb :'tag/show'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

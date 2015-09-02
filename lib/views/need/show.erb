@@ -12,5 +12,16 @@
     <input type="hidden" name="need" value="<%= @need_id %>">
     <button> Reply </button>
   </form>
-  
+
+</div>
+
+
+<div class="leads">
+	<% @needs.each do |need| %>
+		<% if need.leads.any? %>
+			<%need.leads.each do |lead| %>
+				<%= lead.message %>
+			<% end %>
+		<% end %>
+	<% end %>
 </div>

@@ -24,6 +24,7 @@ class NeedsAndLeads < Sinatra::Base
   end
 
   get '/need/:id' do
+  	@needs = Need.all
   	@need_id = params[:id]
   	@need = Need.find_by_id(@need_id)
   	erb :'need/show'
